@@ -2,27 +2,55 @@
 #include <catch.hpp>
 #include "vec2.hpp"
 
+TEST_CASE("describe_checkvec", "[checkvec]") {
 
-Vec2 a;
-Vec2 b{ 5.1f, -9.3f };
-Vec2 c{};
+	Vec2 a;
+	Vec2 b{ 5.1f, -9.3f };
 
-Vec2 checkvec(Vec2 c) {
+	std::cout << a.x << " " << a.y << "\n";
+	std::cout << b.x << " " << b.y << "\n";
 
-	Vec2 t1{ 1.0f, -1.0 };
-	Vec2 t2{ t1 + c };
-	
-	return t2;
+	a.x += b.x;
+	a.y += b.y;
 
-}
+	std::cout << a.x << " " << a.y << "\n";
+	std::cout << b.x << " " << b.y << "\n";
 
-TEST_CASE("describe_checkvec", "[checksum]") {
+	REQUIRE(a.x == b.x);
+	REQUIRE(a.y == b.y);
 
-	REQUIRE(checkvec(5.0f, -10.0f) == 6.0f, -11.0f);
+	b.x *= 2;
+	b.y *= 2;
+
+	std::cout << a.x << " " << a.y << "\n";
+	std::cout << b.x << " " << b.y << "\n";
+
+	REQUIRE(b.x == 2 * a.x);
+	REQUIRE(b.y == 2 * a.y);
+
+	b.x /= 2;
+	b.y /= 2; 
+
+	std::cout << a.x << " " << a.y << "\n";
+	std::cout << b.x << " " << b.y << "\n";
+
+	REQUIRE(b.x == a.x);
+	REQUIRE(b.y == a.y);
+
+	a.x -= b.x;
+	a.y -= b.y;
+
+	std::cout << a.x << " " << a.y << "\n";
+	std::cout << b.x << " " << b.y << "\n";
+
+	REQUIRE(a.x == 0.0f);
+	REQUIRE(a.y == 0.0f);
+
 
 }
 
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
+  
 }
