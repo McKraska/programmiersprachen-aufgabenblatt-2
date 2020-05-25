@@ -46,7 +46,17 @@ TEST_CASE("describe_checkvec", "[checkvec]") {
 	REQUIRE(a.x == 0.0f);
 	REQUIRE(a.y == 0.0f);
 
+	// a und b sind jetzt wieder in deren Ausganswerte von 0.0 , 0.0 und 5.1 , -9.3.
 
+	b.x / a.x;
+	b.y / a.y;
+
+	std::cout << b.x << " " << b.y << "\n";
+
+	a.x -= b.x;
+	a.y -= b.y;
+
+	std::cout << a.x << " " << a.y << "\n";
 }
 
 int main(int argc, char *argv[])
