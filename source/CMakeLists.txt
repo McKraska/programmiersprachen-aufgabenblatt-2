@@ -24,4 +24,3 @@ target_link_libraries(tests
   ${OPENGL_LIBRARIES}
   )
 
-
