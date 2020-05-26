@@ -23,6 +23,6 @@ struct Mat2 {
 // TODO (in mat2 .cpp ) Definition v. operator *
 
 Mat2 operator *(Mat2 const& m1, Mat2 const& m2);
-Mat2 operator *(Mat2 const& m1, Vec2 const& v);
+Vec2 operator *(Mat2 const& m1, Vec2 const& v);
 
 # endif 
