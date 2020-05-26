@@ -86,6 +86,11 @@ TEST_CASE("describe_checkvec", "[checkvec]") {
 	REQUIRE(a.x == 0.0f);
 	REQUIRE(b.x == -47.43f);
 
+	a.x = 0.0f;
+	a.y = 0.0f;
+	b.x = 5.1f;
+	b.y = -9.3f;
+
 	// Matrix tests 2.5
 
 	std::cout << c.e_00 << " " << c.e_10 << " " << c.e_01 << " " << c.e_11 << "\n";
@@ -100,7 +105,47 @@ TEST_CASE("describe_checkvec", "[checkvec]") {
 	REQUIRE(d.e_01 == -6.5f);
 	REQUIRE(d.e_11 == -8.5f);
 
-}
+	c.e_00 *= d.e_00;
+
+	std::cout << c.e_00 << "\n";
+
+	REQUIRE(c.e_00 == d.e_00);
+
+	c.e_00 *= c.e_01;
+
+	std::cout << c.e_00 << "\n";
+
+	REQUIRE(c.e_00 == c.e_01); // Multiplication mit übergabe auf 0
+
+	c.e_00 = 1.0f;
+
+	d.e_00 *= d.e_10;
+
+	std::cout << d.e_00 << "\n";
+
+	REQUIRE(d.e_00 == 11.25f);
+
+	d.e_00 *= 10.0f;
+
+	std::cout << d.e_00 << "\n";
+
+	REQUIRE(d.e_00 == 112.50f);
+
+	d.e_00 *= b.x;
+
+	std::cout << d.e_00 << "\n";
+
+	REQUIRE(d.e_00 == 573.75f);
+
+	d.e_00 = 2.5f;
+
+	d.e_00 *= d.e_11;
+
+	std::cout << d.e_00 << "\n";
+
+	REQUIRE(d.e_00 == -21.25);
+
+ }
 
 int main(int argc, char *argv[])
 {
