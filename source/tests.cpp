@@ -57,6 +57,8 @@ TEST_CASE("describe_checkvec", "[checkvec]") {
 	a.y -= b.y;
 
 	std::cout << a.x << " " << a.y << "\n";
+
+
 }
 
 int main(int argc, char *argv[])
