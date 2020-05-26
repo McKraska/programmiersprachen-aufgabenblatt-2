@@ -54,10 +54,16 @@ TEST_CASE("describe_checkvec", "[checkvec]") {
 
 	std::cout << b.x << " " << b.y << "\n";
 
+	REQUIRE(b.x == 5.1f);
+	REQUIRE(b.y == -9.3f);
+
 	a.x -= b.x;
 	a.y -= b.y;
 
 	std::cout << a.x << " " << a.y << "\n";
+
+	REQUIRE(a.x == -5.1f);
+	REQUIRE(a.y == 9.3f);
 
 	a.x= 0.0f;
 	b.x= 5.1f;
@@ -72,6 +78,10 @@ TEST_CASE("describe_checkvec", "[checkvec]") {
 
 	std::cout << a.x << " " << a.y << "\n";
 	std::cout << b.x << " " << b.y << "\n";
+
+	REQUIRE(a.x == 0.0f);
+	REQUIRE(b.x == -47.43f);
+
 }
 
 int main(int argc, char *argv[])
