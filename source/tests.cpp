@@ -47,6 +47,7 @@ TEST_CASE("describe_checkvec", "[checkvec]") {
 	REQUIRE(a.y == 0.0f);
 
 	// a und b sind jetzt wieder in deren Ausganswerte von 0.0 , 0.0 und 5.1 , -9.3.
+	// Test für Randfälle
 
 	b.x / a.x;
 	b.y / a.y;
@@ -58,7 +59,19 @@ TEST_CASE("describe_checkvec", "[checkvec]") {
 
 	std::cout << a.x << " " << a.y << "\n";
 
+	a.x= 0.0f;
+	b.x= 5.1f;
+	a.y = 0.0f;
+	b.y = -9.3f;
 
+	std::cout << a.x << " " << a.y << "\n";
+	std::cout << b.x << " " << b.y << "\n";
+
+	a.x *= a.y;
+	b.x *= b.y;
+
+	std::cout << a.x << " " << a.y << "\n";
+	std::cout << b.x << " " << b.y << "\n";
 }
 
 int main(int argc, char *argv[])
