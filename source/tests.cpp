@@ -1,8 +1,12 @@
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
 #include "vec2.hpp"
+#include "mat2.hpp"
 
 TEST_CASE("describe_checkvec", "[checkvec]") {
+
+	Mat2 c{};
+	Mat2 d{2.5f, 4.5f, -6.5f, -8.5f};
 
 	Vec2 a;
 	Vec2 b{ 5.1f, -9.3f };
@@ -81,6 +85,20 @@ TEST_CASE("describe_checkvec", "[checkvec]") {
 
 	REQUIRE(a.x == 0.0f);
 	REQUIRE(b.x == -47.43f);
+
+	// Matrix tests 2.5
+
+	std::cout << c.e_00 << " " << c.e_10 << " " << c.e_01 << " " << c.e_11 << "\n";
+	std::cout << d.e_00 << " " << d.e_10 << " " << d.e_01 << " " << d.e_11 << "\n";
+
+	REQUIRE(c.e_00 == 1.0f);
+	REQUIRE(c.e_10 == 0.0f);
+	REQUIRE(c.e_01 == 0.0f);
+	REQUIRE(c.e_11 == 1.0f);
+	REQUIRE(d.e_00 == 2.5f);
+	REQUIRE(d.e_10 == 4.5f);
+	REQUIRE(d.e_01 == -6.5f);
+	REQUIRE(d.e_11 == -8.5f);
 
 }
 
