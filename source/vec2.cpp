@@ -85,3 +85,4 @@ Vec2 operator *(float s, Vec2 const& v) {
 	return v*s;
 
 }
+

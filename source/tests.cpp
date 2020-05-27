@@ -5,7 +5,54 @@
 
 TEST_CASE("describe_checkvec", "[checkvec]") {
 
-	
+	Vec2 a{};
+	Vec2 b{ 5.1f, -9.3f };
+
+	a += b;
+
+	std::cout << a.x << a.y << "\n";
+
+	REQUIRE(a.x == b.x);
+	REQUIRE(a.y == b.y);
+
+	a -= b;
+
+	std::cout << a.x << a.y << "\n";
+
+	REQUIRE(a.x == 0.0f);
+	REQUIRE(a.y == 0.0f);
+
+	b *= 10;
+
+	std::cout << b.x << b.y << "\n";
+
+	REQUIRE(b.x == 51.0f);
+	REQUIRE(b.y == -93.0f);
+
+	b /= 10;
+
+	std::cout << b.x << b.y << "\n";
+
+	REQUIRE(b.x == 51.0f/10);
+	REQUIRE(b.y == -93.0f/10);
+
+	Vec2 c{ a + b };
+
+	std::cout << c.x << c.y << "\n";
+
+	REQUIRE(c.x == b.x);
+	REQUIRE(c.y == b.y);
+
+	c = a - b ;
+
+	std::cout << c.x << c.y << "\n";
+
+	REQUIRE(c.x == -b.x);
+	REQUIRE(c.y == -b.y);
+
+	c = b / 0.0f;
+
+	std::cout << c.x << c.y << "\n";
 
  }
 
