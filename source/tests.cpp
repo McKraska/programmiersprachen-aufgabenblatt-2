@@ -54,6 +54,9 @@ TEST_CASE("describe_checkvec", "[checkvec]") {
 
 	std::cout << c.x << c.y << "\n";
 
+	c = b / 2 , 5;
+
+	std::cout << c.x << c.y << "\n";
  }
 
 int main(int argc, char *argv[])
