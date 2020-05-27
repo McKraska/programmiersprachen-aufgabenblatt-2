@@ -60,9 +60,12 @@ TEST_CASE("describe_checkvec", "[checkvec]") {
 
 	// Vector tests Fertig
 
-	Mat2 a{};
-	Mat2 b{ 10.0f, 20.0f, 30.0f, 40.0f };
+	Mat2 d{ -1.0f, -2.0f, 3.0f, 4.0f };
+	Mat2 e{ 10.0f, 20.0f, -30.0f, -40.0f };
 
+	Mat2 f{ d * e };
+
+	std::cout << f.e_00 << f.e_10 << f.e_01 << f.e_11 << "\n";
 
  }
 
