@@ -57,6 +57,13 @@ TEST_CASE("describe_checkvec", "[checkvec]") {
 	c = b / 2 , 5;
 
 	std::cout << c.x << c.y << "\n";
+
+	// Vector tests Fertig
+
+	Mat2 a{};
+	Mat2 b{ 10.0f, 20.0f, 30.0f, 40.0f };
+
+
  }
 
 int main(int argc, char *argv[])
